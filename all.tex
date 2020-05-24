@@ -28,6 +28,8 @@
     \section{统计学及其应用领域}
     \subsection{什么是统计学}
     统计学（statistics）是收集、处理、分析、解释数据并从数据中得出结论的科学
+    
+    It deals with the collection, classification, analysis, and interpretation of numerical facts or data.
 
     数据收集也就是取得数据
 
@@ -241,7 +243,7 @@
 
     类似与分层抽样，
     首先将总体中的所有单位按一定的标志（变量）分为若干类，
-    然后在每个类中采用方便抽样或判断抽烟的方式选取样本单位。
+    然后在每个类中采用方便抽样或判断抽样的方式选取样本单位。
 
     \subsubsection{概率抽样与非概率抽样的比较}
         \begin{itemize}
@@ -978,7 +980,39 @@
                 
                 概率函数中的自变量就是随机变量
                 }
-
+            
+            	
+            	{\kaishu 知乎定义：随机变量（random variable）表示随机现象（在一定条件下，并不总是出现相同结果的现象称为随机现象）中各种结果的实值函数（一切可能的样本点）。}\\
+            	
+           		\textbf{知乎问题：如果用通俗的语言介绍什么什么是随机变量？}
+            
+            	{\kaishu 
+            	通俗地讲，随机变量就是一个随机的数，它是对任何的“随机的东西”做的量化。我相信你有能力解释什么是“随机”，所以主要解释“量化”的部分。
+            	
+            	随机的对象可以是任何东西--明天的天气可以是晴、阴、雨，扔硬币的结果可以是正面或者反面，这里本身都没有数字。但是我们要借助概率论来研究它们，而概率论是数学的一部分，要用到数学语言，那么总是写“明天是晴天的概率”就很不方便，于是我们可以把晴、阴、雨贴上标签，叫做0、1、2，然后把明天的天气状况用一个字母X来表示，于是“明天下雨”就变成了“X=2”。这样，这个原本没有数字的随机结果就变成了一个可能的取值为0、1、2的随机数，这就是随机变量。
+            	
+            	作者：Yves S
+            	
+            	链接：https://www.zhihu.com/question/307188808/answer/566226225
+            	
+            	来源：知乎
+            	
+            	著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+            	}\\
+            \\
+            	
+            	
+            	\textbf{参考这个专栏：【测度论】概率论与测度论之间联系的通俗解释(一)} https://zhuanlan.zhihu.com/p/23629928
+            	
+            	{\kaishu 不是每个事件都可以定义其概率（发生的可能性的大小）的，对应的就是不是每个集合都可以定义测度，可以定义测度集合就是可测集。同时，事件必然要涉及到事件的组合运算（复杂事件是可由基本事件表示出来），对应的就是集合的交、并、差、余、极限的运算到复杂集合，所以又需要保证做可列次这些运算不能超出全体范围（即可测集的范围要足够大，以保证集合的可列次交、并、差、余、极限的运算，之后还在里面）
+            	
+            	随机变量的测度论语言定义：设$ (X, \mathcal{F}, P) $为概率测度空间，若对实数轴上 Borel $\sigma$-代数中的任一集合（(Borel集)B，都有$\{\omega \in \Omega: X(\omega) \in B\} \in \mathcal{F}$，则称$X(\omega)$为随机变量，简记为$X$
+            	
+            	随机变量就是建立了“随机事件”到“实数轴上Borel $\sigma$-代数”的一种对应，并且保证了建立了这种对应的随机事件都是可以定义概率测度的。}
+            	\\
+            	
+            	
+            	
                 \begin{itemize}
                     \item [] {
                         \begin{enumerate}
@@ -1143,7 +1177,8 @@
         \paragraph{定义} 设$X_1,X_2,...,X_n$是从总体中抽取的容量为n的一个样本，
         如果由此样本构造的一个函数$T(X_1,X_2,...,X_n)$，
         不依赖任何未知参数，则称函数$T(X_1,X_2,...,X_n)$是一个统计量
-
+		
+		{\kaishu 
         \begin{itemize}
             \item [特点] {
                 \begin{enumerate}
@@ -1161,6 +1196,7 @@
                 \end{enumerate}
             }
         \end{itemize}
+		}
 
         \subsection{常用的统计量}
 
@@ -1269,7 +1305,7 @@
 
             {\kaishu $\chi^2$分布的自由度n越大，其概率密度曲线趋于对称}
 
-            {\kaishu 当$n\to \infty $时，$\chi^2$分布的极限分布式正态分布}
+            {\kaishu 当$n\to \infty $时，$\chi^2$分布的极限分布是正态分布}
 
             \paragraph{$\chi^2$分布具有可加性}  
             \begin{itemize}
@@ -1439,13 +1475,39 @@
 \clearpage
 \chapter{特征函数}
  设$p(x)$是随机变量$x$的密度函数，则$p(x)$的傅里叶变换为 $$ \varphi(t)=\int_{-\infty}^{\infty} e^{i t x} p(x) d x $$
- \section{特征函数的定义}
+
+	\section{特征函数的定义}
  设$X$是一个随机变量，称 $$ \varphi(t)=E\left(\mathrm{e}^{\mathrm{i} t x}\right), \quad-\infty<t<\infty $$
  为$X$的特征函数
  
- \section{利用特征函数求期望方差}
+	\section{利用特征函数求期望方差}
  $$ E(X)=\frac{\varphi^{\prime}(0)}{\mathrm{i}}, \quad Var(X)=-\varphi^{\prime \prime}(0)+\left(\varphi^{\prime}(0)\right)^{2} $$
- 
+	\clearpage
+		\section{特征函数的意义}
+	{\kaishu 
+		把寻求\textbf{独立随机变量和的卷积运算}(积分运算)转化为乘法运算
+		
+		把求\textbf{分布的各阶原点矩}(积分运算)转换为微分运算
+		
+		把寻求\textbf{随机变量序列的极限分布}转换成一般的函数极限
+	}\\
+	\\
+	
+	
+	参考网站：https://www.matongxue.com/madocs/742.html
+	
+	{\kaishu 特征函数是随机变量的分布的不同表现形式
+		
+		也可以理解为坐标变换，类似于直角坐标和极坐标互换
+		
+		目的是为了简化运算}
+	
+	思想是：由指数函数$e^x$的展开式可知，如果随机变量的各阶矩都相等，则其分布相等
+	
+	$$ e^{i t X}=1+\frac{i t X}{1}-\frac{t^{2} X^{2}}{2 !}+\cdots+\frac{(i t)^{n} X^{n}}{n !} $$
+	
+	
+	
 \chapter{参数估计}
 %\begin{document}
 %{\kaishu 楷书字体}
@@ -1460,7 +1522,7 @@
 %        \end{enumerate}
         \subsection{估计量与估计值}
 
-            \paragraph{参数估计} (parameter estimation) 就是用样本统计量去估计总体的参数
+            \paragraph{参数估计} (parameter estimation) 就是\underline{用样本统计量去估计总体的参数}
 
             {\kaishu 总体参数若用符号$\theta$表示，用于估计总体参数的统计量就用$\hat{\theta}$表示}
 
@@ -1524,8 +1586,12 @@
 
             \paragraph{置信区间} (confidence interval) 由样本统计量所构造的总体参数的估计区间
 
-            \paragraph{置信水平} (confidence level) 置信区间中包含总体参数真值的次数所占的比例，
+            \paragraph{置信水平} (confidence level) \underline{置信区间中包含总体参数真值的次数所占的\textbf{比例}}，
             也称为置信度或置信系数(confidence confidence)
+            
+            	得到的区间被称为：...的置信度为$1-\alpha$的置信区间
+            	
+            	比如对总体比例$p$的置信区间：总体比例$p$的置信度为$1-\alpha$的置信区间
 
             此处应该补充一个表格，教材129页
             
@@ -1538,7 +1604,7 @@
                             \item 实际问题中，往往只抽取一个样本。主观的希望这个样本能够包含总体参数的真值
                             \item 不能说置信区间以置信度$1-\alpha$的概率包含总体参数真值
                             \item 不能说总体参数真值以置信度$1-\alpha$的概率落在置信区间内
-                            \item 真正的意义是做了100次抽样，大概有95次找到的区间包含真值（置信度为$0.95$）
+                            \item 真正的意义是：做了无穷次重复抽样，所得到的区间中大约有$1-\alpha$\%包含总体参数。例如做了100次抽样，大概有95次找到的区间包含真值（置信度为$0.95$）
                             \item 这个概率是针对随机区间而言的，而不是一个特定的区间
                         \end{enumerate}
                     }
@@ -1722,7 +1788,7 @@
                                 \item 两个总体独立
                                 \item 两个总体服从正态分布
                                 \item 两个总体方差未知但相等
-                                \item 统计量 $ t = \frac{\left( \overline{x_1}-\overline{x_2} \right)  - \left(\mu_1-\mu_2\right)}{s_p \sqrt{  \frac{1}{n_1} + \frac{1}{n_2} }} \sim t(n_1+n_2-2)$
+                                \item 统计量 $ t = \frac{\left( \overline{x_1}-\overline{x_2} \right)  - \left(\mu_1-\mu_2\right)}{s_p \sqrt{  1/{n_1} + 1/{n_2} }} \sim t(n_1+n_2-2)$
                             
                                 $\Rightarrow \quad $ 无论样本量大小，两个样本均值之差都服从正态分布
                             \end{enumerate}
@@ -1733,7 +1799,7 @@
                         {\kaishu 两个总体方差未知}
 
                         $s_p^2 = \frac{ \left(n_1-1\right)s_1^2  +\left(n_2-1\right)s_2^2  }{n_1+n_2-2}$
-                            $$\left( \overline{x_1}-\overline{x_2} \right)  \pm t_{\alpha/2} \left(n_1+n_2 - 2\right)  \sqrt{s_p^2 \left(     \frac{1}{n_1} + \frac{1}{n_2}    \right)}$$
+                            $$\left( \overline{x_1}-\overline{x_2} \right)  \pm t_{\alpha/2} \left(n_1+n_2 - 2\right) s_p \sqrt{ \frac{1}{n_1} + \frac{1}{n_2}   }$$
 
                 
                 \paragraph{两个总体均值之差的估计：匹配样本}
@@ -1828,6 +1894,56 @@
             {\kaishu 大多数情况下，取$E$的值小于$0.1$
             
             当$\pi$的值不知道时，通常取使$\pi(1-\pi)$最大的值$0.5$}
+        
+        \section{几个关系}
+        	\subsection{样本量与总体方差的关系}
+        		\textbf{在一定的置信水平下，总体的方差越大，所需要的样本量就越大}
+        		
+        		{\kaishu
+        		考虑一个极端的例子：
+        		
+        		总体的方差为0和总体的方差为100
+        		
+        		对于总体方差为0的总体，在一定的置信水平下，仅仅需要1个样本就能100\%的反应总体的参数
+        		
+        		对于总体方差为100的总体，在一定的置信水平下，只有1个样本并不一定能说100\%的反应总体的参数}
+        	
+        	\subsection{置信水平与置信区间的关系}
+        		\textit{置信水平可以理解成可以信任的程度}
+        		
+        		{\kaishu
+        		这个值越大，就越值得信任。即我们根据抽样的样本得到的置信区间包含总体参数真值的概率就越大。
+        		
+        		举个例子：如果总体的参数是3到7之间的数，那么区间[4,6]和区间[1,100]比起来，区间[1,100]包含总体真值的概率就为1，就比[4,6]值得信任。}
+        		
+        		从这个例子可以看出：\textbf{置信水平越高，置信区间越宽}
+        		
+        	\subsection{估计误差和样本量的关系}
+        		描述估计量精度的\(\pm\)值就是估计误差
+        		
+        		估计误差也由两部分组成：正态分布的右侧面积为\(\alpha / 2 \)的\(z\)值和\(\frac{\sigma}{\sqrt{n}}\)
+        		
+        		样本量是包含在估计误差里面的，从公式中可以看出：\textbf{样本量的平方和估计误差的大小成反比}
+        		
+        		{\kaishu
+        		估计误差越大，样本量越小
+        		
+        		样本量越大，估计误差越小}
+        	
+        	\subsection{置信水平与样本量的关系}
+        		样本量是从总体中随机抽取的，抽取的样本量越多，就越能准确的反映总体参数。
+        		
+        		考虑一个极端的例子：
+        		抽取一个样本量和总体中所有的样本，抽取所有的样本的值一定能反映总体的参数 
+        		
+        		从这一点可以看出：\textbf{样本量越大，就越值得信任，置信水平就越高}
+        		样本量越大，置信水平越高
+        		
+        		
+        		
+        		注意：{\kaishu 
+        		并不能由样本量越大，置信水平越高，得出置信区间越宽。
+        		这几个值之间的关系是：其余量不变，只比较两个值之间的关系}
 
         \section{总结：表格形式}
 
@@ -1839,11 +1955,23 @@
     \section{假设检验的基本问题}
         \subsection{假设检验中的P值的意义}
         {\kaishu
-        1. 在原假设成立下，根据样本计算出的统计量取极端值的概率 
+        	
+        	\begin{enumerate}
+        		\item \underline{在原假设下，检验统计量取其实现值(沿着备选假设方向)更加极端的概率} \\
+        			如果某检验统计量$T$的样本实现值为$t$ \\        			
+        			如果$T$越大就越有利于备选假设，则$p$值等于原假设下统计量$T$取其实现值及更极端的概率$P_{H_0}(T\ge t)$ \\
+        			如果$T$越小就越有利于备选假设，则$p$值等于原假设下统计量$T$取其实现值及更极端的概率$P_{H_0}(T\le t)$ \\
+        			如果绝对值$|T|$越大就越有利于备选假设，则$p$值等于$P_{H_0}(|T|\ge |t|)$ \\
+        			
+        		\item \underline{利用样本观测值能够作出的拒绝原假设的最小显著性水平}：P值越小，
+        		说明这种情况发生的概率很小，而这种情况出现了，根据小概率原理，
+        		就有理由拒绝原假设P值
+        		
+        		
+        		
+        		
+        	\end{enumerate}
         
-        2. 利用样本观测值能够作出的拒绝原假设的最小显著性水平：P值越小，
-        说明这种情况发生的概率很小，而这种情况出现了，根据小概率原理，
-        就有理由拒绝原假设P值}
         
         越小越拒绝
         
@@ -1887,10 +2015,10 @@
 		\end{itemize}
 		}
 	
-        \subsection{第一类错误}
+        \paragraph{第一类错误}
         $ \alpha $错误：弃真错误，原假设$H_0$为真却拒绝了
 
-        \subsection{第二类错误}	
+        \paragraph{第二类错误}	
         $ \beta $错误：取伪错误，原假设$H_0$为伪却没有拒绝
 
         \subsection{同时使$\alpha$和$\beta$变小的方法}	
@@ -2089,8 +2217,8 @@
 
     \subsection{什么是假设检验中的显著性水平？}	
     假设检验中的显著性水平： 
-    显著性水平是当原假设正确时却被拒绝的概率或风险即假设检验中犯弃真错误的
-    概率,通常用$\alpha$表示 
+    显著性水平是当原假设正确时却被拒绝的概率或风险，即假设检验中犯弃真错误的
+    概率，通常用$\alpha$表示 
     
     注意： 参数估计中有置信水平,假设检验中有显著性水平
 
@@ -2128,25 +2256,30 @@
     \subsection{显著性水平与P值的区别}	
     显著性水平： 显著性水平是当原假设正确时却被拒绝的概率或风险，即假设检验中犯弃真错误的概率  ，   通常用$\alpha$表示 
     
-    P值：    在原假设成立下，根据样本计算出的统计量取极端值的概率；    利用样本观测值 能够作出的拒绝原假设的最小显著性水平 
+    P值：    在原假设成立下，根据样本计算出的统计量取极端值的概率；    利用样本观测值 能够作出的拒绝原假设的最小显著性水平 \\
+    \\
     
     P值越小，说明这种情况发生的概率很小，而这种情况出现了，根据小概率原理，
     就有理由拒绝原假设
     
     P值越小越拒绝
     
-    P值 $ < \alpha$，拒绝$H_0$ 
+    P值 $ < \alpha$，拒绝$H_0$ \\
+    \\
     
     区别： 
     
-    显著性水平是当原假设正确时却被拒绝的概率或风险；
+    \begin{enumerate}
+    	\item 显著性水平是当原假设正确时却被拒绝的概率或风险；\\    	
+    		P值是在原假设成立下，根据样本计算出的统计量取极端值的概率 
+    	\item 显著性水平是人们根据检验的要求确定的，表示的是犯第一类错误的概率；\\    	
+    		P值是通过计算得到的，是拒绝原假设的最小显著性水平，比一般的显著性水平更加精确
+    	
+    	
+    	
+    \end{enumerate}  
     
-    P值是在原假设成立下，根据样本计算出的统计量取极端值的概率
-    
-    显著性水平是人们根据检验的要求确定的，表示的是犯第一类错误的概率；
-    
-    P值是通过计算得到的，是拒绝原假设的最小显著性水平，
-    比一般的显著性水平更加精确
+
     
     \subsection{P值大小取决于三个因素： }
     
@@ -2187,15 +2320,17 @@
 \chapter{分类数据分析}
 
 
-分类数据的结果是频数 $\chi^2$检验是对分类数据的频数进行分析的统计方法		
+分类数据的结果是频数， $\chi^2$检验是\underline{对分类数据的频数进行分析}的统计方法		
 
 $\chi^2$统计量	$$\chi^2 = \Sigma \frac{(f_0-f_e)^2}{f_e}$$ 
+\\
 
 变量含义： 
 
 1. $f_0$：观察值频数 
 
 2. $f_e$：期望值频数 
+\\
 
 特征： 
 
@@ -2203,7 +2338,7 @@ $\chi^2$统计量	$$\chi^2 = \Sigma \frac{(f_0-f_e)^2}{f_e}$$
 
 2. $\chi^2$统计量的分布与自由度有关 
 
-3. $\chi^2$统计描述了观察值与期望值的接近程度；越接近,$\chi^2$统计量值越小	
+3. $\chi^2$统计描述了观察值与期望值的接近程度；越接近，$\chi^2$统计量值越小	
 
 \section{拟合优度检验是什么}	
 用$\chi^2$统计量进行统计显著性检验 
@@ -2252,7 +2387,7 @@ $R$为分类变量类型的个数，
 认为观察频数与期望频数不一致	
 
 \section{列联分析}
-拟合优度检验是对一个分类变量的经验 对两个分类变量的分析，称为：	独立性检验	
+拟合优度检验是对一个分类变量的检验， 对两个分类变量的分析，称为：	独立性检验	
 
 \subsection{列联表}	
 将两个以上的变量进行交叉分析的频数分布表 
@@ -2342,7 +2477,7 @@ $\chi^2$的自由度$=(R-1)(C-1)=2*2=4$
 	\item $\varphi $相关系数 
 	$$\varphi = \sqrt{\chi^2/n} = \frac{ad-bc}{\sqrt{(a+b)(c+d)(a+c)(b+d)}}$$ 
 	\item $c$系数（列联相关系数） 
-	$$c = \frac{\chi^2}{\chi^2 + n}$$ 
+	$$c = \sqrt{ \frac{\chi^2}{\chi^2 + n}} $$ 
 	\item $V$相关系数 
 	$$V = \sqrt{\frac{\chi^2}{n*min[(R-1),(C-1)]}}$$
 
@@ -2364,7 +2499,7 @@ $$\varphi = \sqrt{\chi^2/n} = \frac{ad-bc}{\sqrt{(a+b)(c+d)(a+c)(b+d)}}$$
 \subsection{$c$相关系数（列联系数）}	
 主要用于列联表大于$2\times 2$的情况 
 
-计算公式： $$c = \frac{\chi^2}{\chi^2 + n}$$ 
+计算公式： $$c = \sqrt{ \frac{\chi^2}{\chi^2 + n} } $$ 
 
 特点： 
 
@@ -2427,7 +2562,7 @@ $$\varphi = \sqrt{\chi^2/n} = \frac{ad-bc}{\sqrt{(a+b)(c+d)(a+c)(b+d)}}$$
 且$2x2$列联表中某一方向对角线上的值全为0 
 
 2. $c$系数（列联相关系数） 
-$$c = \frac{\chi^2}{\chi^2 + n}$$ 
+$$c = \sqrt{ \frac{\chi^2}{\chi^2 + n}} $$ 
 适用于大于$2x2$列联表,
 两个变量独立，$c=0$
 
@@ -2439,7 +2574,8 @@ $c$系数的值小于$\varphi$系数
 3. $V$相关系数 
 $$V = \sqrt{\frac{\chi^2}{n*min[(R-1),(C-1)]}}$$ 
 
-两个变量独立，$V=0$两个变量完全相关，$V=1$	
+两个变量独立，$V=0$；\\
+两个变量完全相关，$V=1$	
 
 
 
@@ -2471,6 +2607,14 @@ $$ P\{\chi^2(5-1)>14\}=0.007295<0.1=\alpha $$
 
 P值是在原假设成立下，根据样本计算出的\underline{统计量取极端值的概率}
 }
+\\
+\\
+
+\underline{在原假设下，检验统计量取其实现值(沿着备选假设方向)更加极端的概率} \\
+如果某检验统计量$T$的样本实现值为$t$ \\        			
+如果$T$越大就越有利于备选假设，则$p$值等于原假设下统计量$T$取其实现值及更极端的概率$P_{H_0}(T\ge t)$ \\
+如果$T$越小就越有利于备选假设，则$p$值等于原假设下统计量$T$取其实现值及更极端的概率$P_{H_0}(T\le t)$ \\
+如果绝对值$|T|$越大就越有利于备选假设，则$p$值等于$P_{H_0}(|T|\ge |t|)$ \\
 
 
 \clearpage
@@ -2485,7 +2629,7 @@ P值是在原假设成立下，根据样本计算出的\underline{统计量取�
 \paragraph{在方差分析中，所要检验的对象称为}	因素或因子，比如说行业
 \paragraph{在方差分析中，因素的不同表现称为}	水平或处理 ，比如行业的不同表现有：零售业、旅游业、航空公司、家电制造业等等
 \paragraph{在方差分析中，在每个因子水平下得到的样本数据称为}	观测值
-\paragraph{在只有一个因素的方差分析（单变量方差分析）中，涉及两个变量}	分类型自变量数值型自变量
+\paragraph{在只有一个因素的方差分析（单变量方差分析）中，涉及两个变量}	分类型自变量，数值型自变量
 
 \subsection{为什么检验均值是否相等的分析叫做方差分析？和分析方差有什么关系吗？}
     虽然人们感兴趣的是均值，但是判断均值之间是否有差异时，需要借助于方差。这个名字也表明，
@@ -2612,18 +2756,16 @@ $$ LSD = t_{\alpha / 2}(n-k) \sqrt{MSE \left( \frac{1}{n_i}+\frac{1}{n_j}\right)
 \paragraph{进行相关分析时，对总体的假定：}	
 两个变量之间是线性关系、两个变量都是随机变量
 
-散点图	
-
 \subsection{相关系数}
     (Pearson's correlation coefficient)(Pearson相关系数)	
 
     $$ r = \frac{n \Sigma xy -\Sigma x \Sigma y }{\sqrt{n \Sigma x^2 - \left( \Sigma x \right)^2} * \sqrt{n \Sigma y^2 - \left( \Sigma y \right)^2} } $$ 
 
-    $ n \Sigma xy -\Sigma x \Sigma y $ 
+%   $ n \Sigma xy -\Sigma x \Sigma y $ 
 
-    $ \sqrt{n \Sigma x^2 - \left( \Sigma x \right)^2} $ 
+%    $ \sqrt{n \Sigma x^2 - \left( \Sigma x \right)^2} $ 
 
-    $ \sqrt{n \Sigma y^2 - \left( \Sigma y \right)^2} $ 
+%    $ \sqrt{n \Sigma y^2 - \left( \Sigma y \right)^2} $ 
 
     根据样本数据计算的度量两个变量之间线性关系强度的统计量，取值范围[-1,1]
 
@@ -2633,7 +2775,7 @@ $$ LSD = t_{\alpha / 2}(n-k) \sqrt{MSE \left( \frac{1}{n_i}+\frac{1}{n_j}\right)
 
     3. r仅仅是x与y之间线性关系的一个度量，它不能用于描述非线性关系 
 
-    $$ r = \sqrt{R^2}=\sqrt{\hat{\beta_1} \frac{l_{xy}}{l_{yy}}} $$
+    $$ r = \sqrt{R^2}=\sqrt{\hat{\beta_1} \frac{l_{xy}}{l_{yy}}} = \sqrt{\frac{l^2_{x y} }{l_{ x x } l_{y y}}}$$
 
     总体相关系数$\rho$是未知的 ，需要用样本相关系数r作为$\rho$的近似值。因此，r是一个随机变量
 
@@ -2703,7 +2845,7 @@ $\varepsilon$是被称为误差项的随机变量，反映了除x和y之间的�
 		\begin{enumerate}
 			\item 误差项$\varepsilon$是一个期望值为0的随机变量，即$E(\varepsilon)=0$
 			\item 对于所有的x值，$\varepsilon$的方差$\sigma^2$都相同
-			\item $\varepsilon \sim N(0,1) $，$\varepsilon$独立，独立性意味着一个特点的x值所对于的$\varepsilon$与其他x值所对应的$\varepsilon$不相关 
+			\item $\varepsilon \sim N(0,1) $，$\varepsilon$独立，独立性意味着一个特定的x值所对于的$\varepsilon$与其他x值所对应的$\varepsilon$不相关 
 			
 		\end{enumerate}
 	}
@@ -2773,14 +2915,14 @@ $ l_{xy} = \Sigma(x_i-\overline{x})(y_i-\overline{y}) = \Sigma x_i y_i - \frac{1
 $ l_{xx} = \Sigma (x_i - \overline{x})^2 = \Sigma x_i^2 - \frac{1}{n}(\Sigma x_i)^2 = \underline{\Sigma x_i^2 - n \overline{x}^2} $ 
 
 $ l_{yy} = \Sigma (y_i - \overline{y})^2 = \Sigma y_i^2 - \frac{1}{n}(\Sigma y_i)^2 = \underline{\Sigma y_i^2 - n \overline{y}^2} $ 
-
+\\
 
 
 可得： 
 
-$$ \hat{\beta}_1 = l_{xy} / l_{xx} $$ 
+$ \hat{\beta}_1 = l_{xy} / l_{xx} $
 
-$$ \hat{\beta}_0 = \overline{y} - \hat{\beta}_0 \overline{x} $$ 
+$ \hat{\beta}_0 = \overline{y} - \hat{\beta}_0 \overline{x} $
 
 当$x=\overline{x}$时，$\hat{y}=\overline{y}$，
 
@@ -2792,7 +2934,7 @@ $$ \hat{\beta}_0 = \overline{y} - \hat{\beta}_0 \overline{x} $$
 \begin{itemize}
 	\item [拟合优度] {
 		\begin{enumerate}
-			\item 判定系数 $R^2 = \frac{\hat{\beta}_1 l_{x y }}{l_{y y}}$
+			\item 判定系数 $R^2 = \frac{\hat{\beta}_1 l_{x y }}{l_{y y}} = \frac{l^2_{x y} }{l_{ x x } l_{y y}}$
 			\item 标准误差$s_e = \sqrt{MSE} $
 		\end{enumerate}
 	}
@@ -2826,7 +2968,7 @@ SSE: sum of squares for error
 总平方和SST=回归平方和SSR + 残差平方和SSE 
 
 判定系数(coefficient of determination)，记为$R^2$ 
-$$R^2 = \frac{SSR}{SST}=\frac{\Sigma(\hat{y}-\overline{y})^2}{\Sigma(y_i-\overline{y})^2} = 1 - \frac{\Sigma(y_i - \hat{y}_i)^2}{\Sigma(y_i-\overline{y})^2} = \frac{\hat{\beta}_1 l_{x y }}{l_{y y}} $$ 
+$$R^2 = \frac{SSR}{SST}=\frac{\Sigma(\hat{y}-\overline{y})^2}{\Sigma(y_i-\overline{y})^2} = 1 - \frac{\Sigma(y_i - \hat{y}_i)^2}{\Sigma(y_i-\overline{y})^2} = \frac{\hat{\beta}_1 l_{x y }}{l_{y y}} = \frac{l^2_{x y} }{l_{ x x } l_{y y}}$$ 
 
 $R^2=1$，拟合是完全的，所有观测点都落在直线上
 
@@ -2967,10 +3109,6 @@ $$ \hat{y_0} \pm t_{\alpha / 2} s_e \sqrt{1+ \frac{1}{n} + \frac{(x_0 - \overlin
 \subsection{标准化残差}	
 $$ z_e = \frac{e_i}{s_e}= \frac{y_i - \hat{y}_i}{s_e} $$
 
-\subsection{估计的标准误差}	
-
-$$ s_e = \sqrt{ \frac{SSE}{n-2} } = \sqrt{MSE} $$
-
 \clearpage
 
 \chapter{一元线性回归重要公式、多元线性回归}
@@ -3097,9 +3235,9 @@ r是样本相关系数： \(\rho\) 是总体相关系数
 
 另一种简便方法：
 
-\[R^2 = \frac{SSR}{SST}= \frac{S_R}{S_e} = \frac{\hat{\beta_1}  l_{xy}}{\hat{\beta_1}  l_{xy}+l_{yy}- \hat{\beta_1} l_{xy}}=\hat{\beta_1} \frac{l_{xy}}{l_{yy}}\]
+\[R^2 = \frac{SSR}{SST}= \frac{S_R}{S_e} = \frac{\hat{\beta_1}  l_{xy}}{\hat{\beta_1}  l_{xy}+l_{yy}- \hat{\beta_1} l_{xy}}=\hat{\beta_1} \frac{l_{xy}}{l_{yy}} = \frac{l^2_{x y} }{l_{ x x } l_{y y}} \]
 
-\[r = \sqrt{R^2}=\sqrt{\hat{\beta_1} \frac{l_{xy}}{l_{yy}}}\]
+\[r = \sqrt{R^2}=\sqrt{\hat{\beta_1} \frac{l_{xy}}{l_{yy}}} = \sqrt{ \frac{l^2_{x y} }{l_{ x x } l_{y y}}}\]
 
 \section{多元线性回归}\label{header-n133}
 
@@ -3212,16 +3350,14 @@ r是样本相关系数： \(\rho\) 是总体相关系数
 \\
 $\star$在多元统计中，为什么要用\textbf{调整的多重判定系数}来比较方程的拟合效果？是如何计算的？
 
-注意：
-{\kaishu
-\begin{enumerate}
-	\def\labelenumi{\arabic{enumi}.}
-	\item	自变量个数的增加将影响到因变量的变差中\textbf{被估计的回归方程}所解释的比例
-	\item	增加自变量时，预测的误差变得较小，从而减少残差平方和 \(SSE\) 
-	\item	使得 \(R^2\) 变大
-	\item	如果模型中增加一个自变量，即使这个自变量在统计上并不显著， \(R^2\)也会变大
-\end{enumerate}
-}
+注意：\\
+自变量个数的增加将影响到因变量的变差中\textbf{被估计的回归方程}所解释的比例 \\
+$\Downarrow$ \\
+增加自变量时，预测的误差变得较小，从而减少残差平方和 \(SSE\)  \\
+$\Downarrow$ \\
+使得 \(R^2\) 变大 \\
+$\Downarrow$ \\
+如果模型中增加一个自变量，即使这个自变量在统计上并不显著， \(R^2\)也会变大
 
 采用\textbf{调整的多重判定系数}来避免增加自变量而高估 \(R^2\)
 
@@ -3292,7 +3428,7 @@ $\star$在多元统计中，为什么要用\textbf{调整的多重判定系数}�
 回归系数检验：如果某个自变量没有通过检验，就意味着这个自变量对因变量的影响不显著，就没有必要将这个自变量放进回归模型中了。
 }
 
-\subsubsection{线性关系检验}\label{header-n238}
+\subsubsection{线性关系检验 $\quad F$检验}\label{header-n238}
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
@@ -3307,7 +3443,7 @@ $\star$在多元统计中，为什么要用\textbf{调整的多重判定系数}�
 	做出统计决策，拒绝域 \( C = \{ F>F_{\alpha} \} \)
 \end{enumerate}
 
-\subsubsection{回归系数检验}\label{header-n246}
+\subsubsection{回归系数检验 $\quad t$检验}\label{header-n246}
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
@@ -3369,6 +3505,7 @@ $\star$在多元统计中，为什么要用\textbf{调整的多重判定系数}�
 
 借助于计算机
 
+\clearpage
 \subsection{变量选择与逐步回归}\label{header-n284}
 
 \subsubsection{变量选择过程}\label{header-n285}
@@ -3466,7 +3603,6 @@ $\star$在多元统计中，为什么要用\textbf{调整的多重判定系数}�
 自变量$x_1,x_2,...,x_k$是非随机的、固定的，且相互之间互不相关（无多重共线性）；\\
 同时样本容量必须大于所要估计的回归系数的个数，即$n>k$； 
 \\
-\\
 
 对误差项$\varepsilon$的假定：
 \\
@@ -3479,24 +3615,14 @@ $\star$在多元统计中，为什么要用\textbf{调整的多重判定系数}�
 且无序列相关，即
 $D(\varepsilon_i) = \sigma^2 , \quad Cov(\varepsilon_i,\varepsilon_j)=0,i \neq j$。
 
-\paragraph{对误差项 $\varepsilon$ 的三个假定}	a
-
-误差项 $\varepsilon$ 是一个期望值为 $0$ 的随机变量
-
-误差项 $\varepsilon$ 是一个服从正态分布的随机变量 
-
-对于自变量 $ x_1, x_2 , x_3 , ... ,x_k$ 的所有值，
-误差项 $\varepsilon$ 的方差 $ \sigma^2 $ 都相同
-
 期望为0，正态分布，方差相同
 
 \paragraph{估计的多元回归方程}	用样本统计量$ \hat{\beta}_0,\hat{\beta}_1,\hat{\beta}_2,...,\hat{\beta}_k $去估计回归方程中的未知参数$\beta_0,\beta_1,\beta_2,...,\beta_k$，就得到估计的多元回归方程 
 
 一般形式：
-$$\hat{y} = \hat{\beta_0} + \hat{\beta_1} x_1 + \hat{\beta_2} x_2 + ... + \hat{\beta_k} x_k$$
+$\hat{y} = \hat{\beta_0} + \hat{\beta_1} x_1 + \hat{\beta_2} x_2 + ... + \hat{\beta_k} x_k$
 
-\paragraph{偏回归系数的解释}	a
-
+\paragraph{偏回归系数的解释} 
 偏回归系数的定义：$ \hat{\beta}_1,\hat{\beta}_2,...,\hat{\beta}_k $ 
 
 $\hat{\beta}_1$表示：当$ x_2,x_3,...,x_k$不变时，$x_1$每变动一个单位因变量$y$的平均变动量； 
@@ -3507,6 +3633,7 @@ $\hat{\beta}_3$表示：当$ x_1,x_2,,x_4,...,x_k$不变时，$x_3$每变动一�
 
 类推... 
 
+注意：
 $\hat{\beta}_0 $不是偏回归系数
 
 
@@ -3523,6 +3650,24 @@ $$ R^2 = \frac{SSR}{SST} $$
 多重判定系数 是： 多元回归中的回归平方和占总平方和的比例，
 度量多元回归方程拟合程度的一个统计量，
 反应了因变量 $y$ 中被估计的回归方程所占的比例
+
+\paragraph{多重判定系数的计算和解释}
+
+计算： 
+$ R^2 = \frac{SSR}{SST} $
+
+解释： 
+
+实际意义：在因变量$y$ 取值的变差中，能被因变量$y$ 和自变量$x_1,x_2,...,x_k$ 的
+多元回归方程所解释的比例为$R^2$ 
+
+例子： $R^2=72.7125\% $ \\
+因变量$y$ ：不良贷款 \\
+自变量$x_1,x_2,...,x_k$ ：比如贷款余额、累计应收贷款、贷款项目个数和固定资产投资额 \\
+在不良贷款取值的变差中，
+能被不良贷款和贷款余额、累计应收贷款、贷款项目个数和固定资产投资额的多元回归方程
+所解释的比例为75.7125%
+
 
 \subsection{调整的多重判定系数的概念}
 
@@ -3541,33 +3686,19 @@ $$ R_a^2 =1-(1-R^2)(\frac{n-1}{n-k-1}) $$
 
 $R_a^2$ 同时考虑了样本量 $ n$ 和模型中自变量个数 $k$ 的影响
 
-\paragraph{多重判定系数的计算和解释}
-
-计算： 
-$$ R^2 = \frac{SSR}{SST} $$ 
-
-解释： 
-
-实际意义：在因变量$y$ 取值的变差中，能被因变量$y$ 和自变量$x_1,x_2,...,x_k$ 的
-多元回归方程所解释的比例为$R^2$ 
-
-例子： $R^2=72.7125\% $ \\
-因变量$y$ ：不良贷款 \\
-自变量$x_1,x_2,...,x_k$ ：\\
-比如贷款余额、累计应收贷款、贷款项目个数和固定资产投资额 在不良贷款取值的变差中，
-能被不良贷款和贷款余额、累计应收贷款、贷款项目个数和固定资产投资额的多元回归方程
-所解释的比例为75.7125%
-
 \paragraph{调整的多重判定系数的计算和解释}	
 
 计算： 
-$$ R_a^2 =1-(1-R^2)(\frac{n-1}{n-k-1}) $$ 
+$ R_a^2 =1-(1-R^2)(\frac{n-1}{n-k-1}) $
 
-解释： 
+解释：copy上面的解释，实际上差不多，只是克服了增加自变量个数造成的影响。 
 
 实际意义：在因变量$y$ 取值的变差中，能被因变量$y$ 和自变量$x_1,x_2,...,x_k$ 的多元回归方程所解释的比例为$R^2$ 
 
-例子： $R^2=72.7125\% $ 因变量$y$ ：不良贷款 自变量$x_1,x_2,...,x_k$ ：比如贷款余额、累计应收贷款、贷款项目个数和固定资产投资额 在不良贷款取值的变差中，能被不良贷款和贷款余额、累计应收贷款、贷款项目个数和固定资产投资额的多元回归方程所解释的比例为75.7125\% 
+例子： $R^2=72.7125\% \\
+$ 因变量$y$ ：不良贷款 \\
+自变量$x_1,x_2,...,x_k$ ：比如贷款余额、累计应收贷款、贷款项目个数和固定资产投资额 \\
+在不良贷款取值的变差中，能被不良贷款和贷款余额、累计应收贷款、贷款项目个数和固定资产投资额的多元回归方程所解释的比例为75.7125\% 
 
 $R_a^2$的解释与$R^2$类似，不同的是，$R_a^2$同时考虑了因变量$n$和模型中自变量个数$k$的影响，这就使得$R_a^2$的值永远小于$R^2$，而且$R_a^2$的值不会由于模型中自变量个数的增加而越来越接近于1 因此，在多元回归中，通常采用调整的多重判定系数
 
@@ -3597,9 +3728,9 @@ $$ s_{e}=\sqrt{\frac{\sum\left(y_{i}-\hat{y}_{i}\right)^{2}}{n-k-1}}=\sqrt{\frac
 
 回归系数检验：对每个回归系数分别进行单独的检验，主要用于检验每个自变量对因变量的影响是否显著
 
-\subsection{线性关系检验}	在 $k$ 个自变量中，只要有一个自变量与因变量的线性关系显著， $F$ 检验就能通过，但是并不意味着每个自变量和因变量的关系都显著。
+\subsection{线性关系检验 $\quad F$检验}	在 $k$ 个自变量中，只要有一个自变量与因变量的线性关系显著， $F$ 检验就能通过，但是并不意味着每个自变量和因变量的关系都显著。
 
-\subsection{回归系数检验}	如果某个自变量没有通过检验，就意味着这个自变量对因变量的影响不显著，就没有必要将这个自变量放进回归模型中了。
+\subsection{回归系数检验 $\quad t$检验}	如果某个自变量没有通过检验，就意味着这个自变量对因变量的影响不显著，就没有必要将这个自变量放进回归模型中了。
 
 \paragraph{线性关系检验的步骤：}	检验线性关系
 
